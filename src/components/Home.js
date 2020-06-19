@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// import TableContainer from '@material-ui/core/TableContainer';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
 
 import businesses from '../businesses.json'
 
@@ -15,18 +16,6 @@ const useStyles = makeStyles({
     minWidth: 650,
   },
 });
-
-// function createData(name, hours, address) {
-//   return { name, hours, address };
-// }
-
-
-// const rows = createRows();
-// function createRows() {  
-//   for(let id = 0; id < businesses.length; id++) {
-//     return createData(businesses[id].name, businesses[id].Hours, businesses[id].Address)
-//   }
-// }
 
 function Home() {
   const classes = useStyles();
@@ -45,7 +34,7 @@ function Home() {
           {businesses.map((row) => (
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">
-                {row.Name}
+                <Link to={`/business/${row.id}`}>{row.Name}</Link>
               </TableCell>
               <TableCell align="right">{row.Hours}</TableCell>
               <TableCell align="right">{row.Address}</TableCell>
