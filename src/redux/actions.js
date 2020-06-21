@@ -1,27 +1,33 @@
-const url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json"
 
-export const addCar = (car) => {
+export const addBusiness = (business) => {
     return {
-        type: 'ADD_CAR',
+        type: 'ADD_BUSINESS',
         value: car
     }
 }
 
-export const removeCar = (index) => {
+export const removeBusiness = (index) => {
     return {
-        type: 'REMOVE_CAR',
+        type: 'REMOVE_BUSINESS',
         value: index
     }
 }
 
-export const fetchMakes = () => {
-    fetch(url)
-        .then(response => response.json())
-        .then((response) => {
-            // console.log("FETCHING", response.Results)
-            return {
-                type: 'FETCH_MAKES',
-                value: response.Results
-            }
-        })
+export const login = () => {
+    return {
+        type: 'LOG_IN',
+        value: true
+    }
 }
+
+// export const fetchMakes = () => {
+//     fetch(url)
+//         .then(response => response.json())
+//         .then((response) => {
+//             // console.log("FETCHING", response.Results)
+//             return {
+//                 type: 'FETCH_MAKES',
+//                 value: response.Results
+//             }
+//         })
+// }
