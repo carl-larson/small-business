@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 const user = (state = null) => state
 
 const businesses = (state = [], action) => {
+    console.log("reducer", action.value);
     switch(action.type) {
         case 'ADD_BUSINESS':
             return [ ...state, action.value ]

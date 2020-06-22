@@ -1,8 +1,10 @@
 
 export const addBusiness = (business) => {
-    return {
+        console.log("Adding business: ", business);
+        return {
         type: 'ADD_BUSINESS',
         value: business
+
     }
 }
 

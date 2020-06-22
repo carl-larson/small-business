@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react'
 import {
     Button,
     TextField,
-    Paper
+    Paper,
+    // Link
 } from '@material-ui/core'
+// import { Redirect } from 'react-router-dom'
 
 class AddBusiness extends Component {
     state = {
@@ -31,6 +33,12 @@ class AddBusiness extends Component {
         this.props.addBusiness(payload)
         // also add this.setState to close the dialog
         // this.setState({open: false})
+        const resetState = {
+            name: '',
+            description: '',
+            hours: '',
+            address: ''}
+        this.setState(resetState)
     }
 
     // componentDidUpdate = (prevProps, prevState) => {
@@ -58,29 +66,30 @@ class AddBusiness extends Component {
                                 id="name" 
                                 placeholder="Name" 
                                 value={this.state.name} 
-                                onChange={this.handleTextChange} 
+                                onChange={this.handleTextChange}
                                 required />
                             <TextField 
                                 id="description" 
                                 placeholder="Describe the business" 
                                 value={this.state.description} 
-                                onChange={this.handleTextChange} 
+                                onChange={this.handleTextChange}
                                 required />
                             <TextField 
                                 id="hours" 
                                 placeholder="Hours" 
                                 value={this.state.hours} 
-                                onChange={this.handleTextChange} 
+                                onChange={this.handleTextChange}
                                 required />
                             <TextField 
                                 id="address" 
                                 placeholder="Address" 
                                 value={this.state.address} 
-                                onChange={this.handleTextChange} 
+                                onChange={this.handleTextChange}
                                 required />
                             <br />
                             <Button variant="contained" color="primary" type="submit">Submit</Button>
                         </form>
+                        {/* <Link href="/" style={{textDecoration: 'none', color: 'black'}} >Back</Link> */}
                     </Paper>
                 </div>
             </Fragment>
