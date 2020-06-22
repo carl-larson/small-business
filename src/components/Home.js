@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableContainer from '@material-ui/core/TableContainer';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import cookie from 'cookie';
 
-import businesses from '../businesses.json'
+
+// import businesses from '../businesses.json'
 
 const useStyles = makeStyles({
   table: {
@@ -17,27 +14,43 @@ const useStyles = makeStyles({
   },
 });
 
-function Home() {
+
+
+const Home = (props) => {
+    const cookies = cookie.parse(document.cookie);
+    const verified = cookies['username'] ? true : false;
+  
+  const handleClick = (idx) => {
+    if(verified) {
+      props.removeBusiness(idx)
+    }
+  }
+  
   const classes = useStyles();
+
+  // const deleteButton = verified ? <div></div> : <Button onClick={() => {}}><DeleteIcon /></Button>
   // console.log(businesses)
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Hours</TableCell>
-            <TableCell align="right">Address</TableCell>
+            <TableCell >Name</TableCell>
+            <TableCell >Hours</TableCell>
+            <TableCell >Address</TableCell>
+            <TableCell >Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {businesses.map((row) => (
-            <TableRow key={row.id}>
+          {props.businesses.map((business, idx) => (
+            <TableRow key={business.id}>
               <TableCell component="th" scope="row">
-                <Link to={`/business/${row.id}`}>{row.Name}</Link>
+                <Link to={`/business/${business.id}`}>{business.Name}</Link>
               </TableCell>
-              <TableCell align="right">{row.Hours}</TableCell>
-              <TableCell align="right">{row.Address}</TableCell>
+              <TableCell align="right">{business["Hours"]}</TableCell>
+              <TableCell align="right">{business["Address"]}</TableCell>
+              <TableCell align="right"><Button onClick={() => handleClick(idx)}><DeleteIcon /></Button></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -7,11 +7,10 @@ import {
 
 class AddBusiness extends Component {
     state = {
-        // open: false,
         name: '',
-        mpg: '',
-        cylinders: '',
-        horsepower: '',
+        description: '',
+        hours: '',
+        address: ''
     }
 
     // toggleDialog = () => this.setState({ open: !this.state.open })
@@ -29,21 +28,21 @@ class AddBusiness extends Component {
         // delete payload.open
         console.log("THE BUSINESS", payload)
         // add this.props.addCar function here
-        this.props.AddBusiness(payload)
+        this.props.addBusiness(payload)
         // also add this.setState to close the dialog
         // this.setState({open: false})
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.open !== this.state.open) {
-            this.setState({
-                name: '',
-                description: '',
-                hours: '',
-                address: ''
-            })
-        }
-    }
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if (prevState.open !== this.state.open) {
+    //         this.setState({
+    //             name: '',
+    //             description: '',
+    //             hours: '',
+    //             address: ''
+    //         })
+    //     }
+    // }
 
     render() {
         return (

@@ -2,7 +2,7 @@
 export const addBusiness = (business) => {
     return {
         type: 'ADD_BUSINESS',
-        value: car
+        value: business
     }
 }
 

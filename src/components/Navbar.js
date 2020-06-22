@@ -11,9 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 // import { Chip } from '@material-ui/core'
 
-const logout = () => {
-  document.cookie = '';
-}
+// const logout = () => {
+//   console.log("Logging out")
+//   document.cookie = '';
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +36,8 @@ export default function ButtonAppBar() {
   const cookies = cookie.parse(document.cookie)
   const verified = cookies['username'] ? true : false;
   console.log("cookie is: ", cookies['username'])
-  let logButton = verified ? <Link style={{textDecoration: 'none', color: 'white'}} onClick={() => logout()} to='/'>Logout</Link> : <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>Login</Link>
+  let logButton = verified ? <Link style={{textDecoration: 'none', color: 'white'}} onClick={() => {document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"}} to='/'>Logout</Link>
+    : <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>Login</Link>
   // const logButton = verified ? '/' : '/login';
   // const logText = verified ? 'Logout' : 'Login';
   // cookies["loggedIn"] ? true : false
