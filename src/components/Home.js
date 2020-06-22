@@ -6,8 +6,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import cookie from 'cookie';
 import Total from '../containers/Total'
 
-// import businesses from '../businesses.json'
-
 const useStyles = makeStyles({
   table: {
     minWidth: 650,

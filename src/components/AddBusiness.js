@@ -9,10 +9,10 @@ import {
 
 class AddBusiness extends Component {
     state = {
-        name: '',
-        description: '',
-        hours: '',
-        address: ''
+        Name: '',
+        Description: '',
+        Hours: '',
+        Address: ''
     }
 
     // toggleDialog = () => this.setState({ open: !this.state.open })
@@ -34,10 +34,10 @@ class AddBusiness extends Component {
         // also add this.setState to close the dialog
         // this.setState({open: false})
         const resetState = {
-            name: '',
-            description: '',
-            hours: '',
-            address: ''}
+            Name: '',
+            Description: '',
+            Hours: '',
+            Address: ''}
         this.setState(resetState)
     }
 
@@ -63,27 +63,27 @@ class AddBusiness extends Component {
                             onSubmit={this.handleSubmit}
                             style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
                             <TextField 
-                                id="name" 
+                                id="Name" 
                                 placeholder="Name" 
-                                value={this.state.name} 
+                                value={this.state.Name} 
                                 onChange={this.handleTextChange}
                                 required />
                             <TextField 
-                                id="description" 
+                                id="Description" 
                                 placeholder="Describe the business" 
-                                value={this.state.description} 
+                                value={this.state.Description} 
                                 onChange={this.handleTextChange}
                                 required />
                             <TextField 
-                                id="hours" 
+                                id="Hours" 
                                 placeholder="Hours" 
-                                value={this.state.hours} 
+                                value={this.state.Hours} 
                                 onChange={this.handleTextChange}
                                 required />
                             <TextField 
-                                id="address" 
+                                id="Address" 
                                 placeholder="Address" 
-                                value={this.state.address} 
+                                value={this.state.Address} 
                                 onChange={this.handleTextChange}
                                 required />
                             <br />
