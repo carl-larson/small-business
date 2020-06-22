@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 function Home() {
   const classes = useStyles();
-  console.log(businesses)
+  // console.log(businesses)
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">

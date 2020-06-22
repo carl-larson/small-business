@@ -11,6 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 // import { Chip } from '@material-ui/core'
 
+const logout = () => {
+  document.cookie = '';
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -29,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
   const cookies = cookie.parse(document.cookie)
+  const verified = cookies['username'] ? true : false;
+  console.log("cookie is: ", cookies['username'])
+  let logButton = verified ? <Link style={{textDecoration: 'none', color: 'white'}} onClick={() => logout()} to='/'>Logout</Link> : <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>Login</Link>
+  // const logButton = verified ? '/' : '/login';
+  // const logText = verified ? 'Logout' : 'Login';
   // cookies["loggedIn"] ? true : false
   return (
     <div className={classes.root}>
@@ -40,10 +49,11 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Link style={{textDecoration: 'none', color: 'white'}} to="/">Austin Businesses</Link>
           </Typography>
-          <Link style={{textDecoration: 'none', color: 'white'}} to="/login">Login</Link>
+          <Link className={classes.menuButton} style={{textDecoration: 'none', color: 'white'}} to='/addBusiness'>Add a Business</Link>
+          <span>{logButton}</span>
         </Toolbar>
+  <div className={classes.user}>{verified === true && <span>Logged in as: {cookies['username']}</span>}</div>
       </AppBar>
-      <div className={classes.user}>{cookies["loggedIn"] === true && <h4>Logged in as:</h4>}</div>
     </div>
   );
 }

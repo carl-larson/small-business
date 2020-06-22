@@ -8,7 +8,7 @@ import AddBusiness from '../components/AddBusiness'
 
 const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
-    return cookies["loggedIn"] ? true : false
+    return cookies["username"] ? true : false
 }
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
