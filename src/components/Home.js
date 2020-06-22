@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import cookie from 'cookie';
-
+import Total from '../containers/Total'
 
 // import businesses from '../businesses.json'
 
@@ -32,6 +32,10 @@ const Home = (props) => {
   // console.log(businesses)
   
   return (
+    <div>
+
+
+    <Total />
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -56,6 +60,7 @@ const Home = (props) => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
 
